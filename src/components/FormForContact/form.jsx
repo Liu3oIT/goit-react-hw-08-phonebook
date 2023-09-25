@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import React from 'react';
 import css from './form.module.css';
-import { nanoid } from 'nanoid';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { addContactToList } from 'redux/slice';
+
 import { toast } from 'react-toastify';
+import { addContact } from 'redux/contacts/operations';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -30,9 +31,8 @@ export const Form = () => {
   const AddContact = event => {
     event.preventDefault();
     const newContact = {
-      id: nanoid(),
       name: name,
-      phone: number,
+      number: number,
     };
     const contactExists = contacts.some(
       contacts => contacts.name.toLowerCase() === name.toLowerCase()
@@ -48,7 +48,7 @@ export const Form = () => {
         draggable: true,
       });
     } else {
-      dispatch(addContactToList(newContact));
+      dispatch(addContact(newContact));
     }
 
     reset();

@@ -1,0 +1,5 @@
+export const selectLoading = state => state.tasks.isLoading;
+
+export const selectFilter = state => state.tasks.filter;
+
+export const selectAllContacts = state => state.tasks.contacts;

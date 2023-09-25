@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form } from 'components/FormForContact/form';
 import css from './booksphone.module.css';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteContactFromList, fetchContacts } from 'redux/slice';
+
 import { ListFilter, setFilter } from 'redux/filterSlise';
-import { selectFilteredContacts } from 'redux/selectors';
+import {  selectFilteredContacts } from 'redux/selectors';
+import { deleteContact, fetchContacts } from 'redux/contacts/operations';
+
+
 
 const BookPhones = () => {
+ 
   const filteredContacts = useSelector(selectFilteredContacts);
   const filter = useSelector(ListFilter);
   const dispatch = useDispatch();
@@ -19,12 +23,13 @@ const BookPhones = () => {
 
   const handleFindContact = event => {
     const query = event.target.value;
-   dispatch(setFilter(query))
+    dispatch(setFilter(query));
   };
 
   const deletePhone = contactId => {
-    dispatch(deleteContactFromList(contactId));
+    dispatch(deleteContact(contactId));
   };
+
 
   return (
     <>
@@ -46,10 +51,11 @@ const BookPhones = () => {
         </label>
 
         <ul>
-          {filteredContacts?.map(({ id, name, phone }) => (
+          {filteredContacts?.map(({ id, name, number }) => (
             <li className={css.list_contact} key={id}>
               <p className={css.info_contact}>{name}</p>
-              <p className={css.info_contact}>{phone}</p>
+              <p className={css.info_contact}>{number}</p>
+             
               <button
                 className={css.button_delet_contact}
                 type="button"
