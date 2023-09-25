@@ -1,8 +1,7 @@
-import { useDispatch } from "react-redux";
-import { Button, Form, Input, Wrapper } from "./LoginPage.styled";
-import { logIn } from "redux/auth/operations";
-import { NavLink, useLocation } from "react-router-dom";
-import { ButtonInfo } from "components/Header/header.styled";
+import { useDispatch } from 'react-redux';
+import { Button, Form, Input, Title, Wrapper } from './LoginPage.styled';
+import { logIn } from 'redux/auth/operations';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export default function LoginPage() {
   const location = useLocation();
@@ -20,7 +19,7 @@ export default function LoginPage() {
   };
   return (
     <>
-      <h1>Sign In Form</h1>
+      <Title>Log In Form</Title>
       <Wrapper id="wrapper">
         <Form
           id="signin"
@@ -29,13 +28,21 @@ export default function LoginPage() {
           autocomplete="off"
           onSubmit={handleSubmit}
         >
-          <Input type="email" name="email" placeholder="username" />
-          <Input type="password" name="password" placeholder="password" />
+          <Input type="email" name="email" placeholder="Email" required />
+          <Input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
           <Button type="submit">Log In</Button>
+          <p>
+            If you don't have an account, you can register{' '}
+            <NavLink to={'/register'} state={{ from: location.pathname }}>
+              here
+            </NavLink>{' '}
+          </p>
         </Form>
-        <NavLink to={'/register'} state={{ from: location.pathname }}>
-          <ButtonInfo>Register</ButtonInfo>
-        </NavLink>
       </Wrapper>
     </>
   );

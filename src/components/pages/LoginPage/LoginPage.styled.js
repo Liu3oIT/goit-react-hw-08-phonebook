@@ -3,49 +3,33 @@
 import styled from '@emotion/styled';
 
 export const Title = styled.h1`
-  color: rgb(255, 255, 255);
+  color: #666;
   margin: 20px auto 0;
-  width: 200px;
   text-align: center;
+  margin-bottom: 20px
 `;
 export const Wrapper = styled.div`
-  position: absolute;
-  width: 320px;
-  left: 50%;
-  margin-left: -160px;
-  top: 50%;
-  margin-top: -75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 /* === Sign in Form === */
 export const Form = styled.form`
-  height: 90px;
   width: 300px;
-  border-radius: 8px;
-  position: relative;
-  &::before {
-    display: block;
-    position: relative;
-    height: 2px;
-    background: rgb(52, 56, 61);
-    content: '';
-    top: 44px;
-    margin-left: 20px;
-    z-index: 1;
-  }
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 export const Input = styled.input`
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-  position: relative;
-  display: block;
-  width: 280px;
-  height: 45px;
-  border: 0;
-  outline: 0;
-  top: -2px;
-  padding: 0 0 0 20px;
-  font-weight: 700;
+  width: 276px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 `;
 
 // #signin input:first-of-type{
@@ -76,26 +60,17 @@ export const Input = styled.input`
 // 	color: rgb(255, 255, 255);
 // }
 export const Button = styled.button`
-  display: block;
-  position: absolute;
-  width: 102px;
-  height: 52px;
-  color: rgb(52, 56, 61);
-  border-radius: 50%;
-  outline: 0;
-  z-index: 2;
-  top: 19px;
-  right: -24px;
-  border: 6px solid rgb(52, 56, 61);
-  font-size: 25px;
-  text-indent: 0px;
-  padding-left: 9px;
-  padding-bottom: 3px;
-  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
   &:hover {
-    color: rgb(0, 126, 165);
-    text-shadow: 0 0 10px rgb(0, 126, 165);
-    cursor: pointer;
+    background-color: #0056b3;
   }
 `;
 
